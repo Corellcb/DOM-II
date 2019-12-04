@@ -68,6 +68,20 @@ bottomBtns.forEach(el =>
                 el.style.color = 'black';
                 el.style.backgroundColor = 'grey';
             }
-        })
+        }) 
     }
 );
+
+
+let beep = new Audio('beep.mp3');
+let page = document.querySelectorAll('*');
+page.forEach(el =>
+    {
+    el.addEventListener('load', (event) => {
+        beep.play();
+    })
+    el.addEventListener('wheel', (event) => {
+        el.style.transform = 'rotate(45deg)';
+        event.stopPropagation();
+    })
+})
